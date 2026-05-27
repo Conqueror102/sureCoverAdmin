@@ -1,11 +1,16 @@
+"use client";
+
 import { CheckCircle2, FileCheck2, ShieldCheck, Stethoscope, XCircle } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ModulePage } from "@/components/shared/module-page";
 import { StatusPill } from "@/components/shared/status-pill";
+import { useUIStore } from "@/store/ui-store";
 
 export function VerificationWorkspace() {
+  const openModal = useUIStore((state) => state.openModal);
+
   return (
     <ModulePage
       title="Doctor Verification Queue"
@@ -58,8 +63,31 @@ export function VerificationWorkspace() {
               <div className="font-semibold text-slate-950">Medical reviewer notes</div>
               <p className="mt-2 text-sm leading-6 text-slate-500">License is valid. Insurance is active but close to renewal threshold. Recommend conditional approval with renewal reminder.</p>
             </div>
-            <Button className="w-full bg-emerald-600 hover:bg-emerald-700"><CheckCircle2 className="mr-2 h-4 w-4" /> Approve credentials</Button>
-            <Button variant="outline" className="w-full text-red-700 hover:bg-red-50 hover:text-red-800"><XCircle className="mr-2 h-4 w-4" /> Reject application</Button>
+            <Button
+              className="w-full bg-emerald-600 hover:bg-emerald-700"
+              onClick={() => openModal({
+                type: "approve-doctor",
+                title: "Approve doctor credentials",
+                description: "This grants platform access and publishes the doctor to scheduling workflows.",
+                entityId: "D-804",
+                entityName: "Dr. William Smith",
+              })}
+            >
+              <CheckCircle2 className="mr-2 h-4 w-4" /> Approve credentials
+            </Button>
+            <Button
+              variant="outline"
+              className="w-full text-red-700 hover:bg-red-50 hover:text-red-800"
+              onClick={() => openModal({
+                type: "reject-doctor",
+                title: "Reject doctor application",
+                description: "This records a rejection decision and notifies the applicant.",
+                entityId: "D-804",
+                entityName: "Dr. William Smith",
+              })}
+            >
+              <XCircle className="mr-2 h-4 w-4" /> Reject application
+            </Button>
             <div className="rounded-lg border p-4">
               <Stethoscope className="mb-3 h-5 w-5 text-teal-700" />
               <div className="font-semibold text-slate-950">Post-approval workflow</div>

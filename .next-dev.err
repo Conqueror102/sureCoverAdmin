@@ -1,0 +1,10 @@
+ ⚠ The config property `experimental.turbo` is deprecated. Move this setting to `config.turbopack` or run `npx @next/codemod@latest next-experimental-turbo-to-turbopack .`
+ ⨯ Failed to start server
+Error: listen EADDRINUSE: address already in use 127.0.0.1:3000
+    at <unknown> (Error: listen EADDRINUSE: address already in use 127.0.0.1:3000) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '127.0.0.1',
+  port: 3000
+}

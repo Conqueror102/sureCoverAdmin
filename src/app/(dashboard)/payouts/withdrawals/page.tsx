@@ -1,6 +1,6 @@
 import { WalletCards } from "lucide-react";
-import { SectionPage } from "@/features/shared/section-page";
+import { WorkflowPage } from "@/features/shared/workflow-page";
 
 export default function WithdrawalRequestsPage() {
-  return <SectionPage title="Withdrawal Requests" description="Doctor withdrawals, fraud checks, approval flow, and transfer status." icon={WalletCards} items={["Pending requests", "Fraud checks", "Transfer status"]} />;
+  return <WorkflowPage title="Withdrawal Requests" description="Doctor withdrawals, fraud checks, approval flow, and transfer status." icon={WalletCards} metrics={[{ label: "Pending", value: "12", change: "Awaiting finance" }, { label: "Ready", value: "8", change: "Can approve" }, { label: "Compliance Holds", value: "2", change: "Needs review", tone: "red" }, { label: "Value", value: "$124.5k", change: "Open requests" }]} queueTitle="Withdrawal Queue" queue={[{ title: "Dr. Sarah Jenkins", subtitle: "$4,820 / verified account", status: "Ready", tone: "success" }, { title: "Dr. Michael Chen", subtitle: "$6,140 / compliance hold", status: "Hold", tone: "danger" }, { title: "Dr. Emily Taylor", subtitle: "$3,310 / processing", status: "Processing", tone: "warning" }]} timeline={[{ title: "Batch opened", description: "Monthly payout cycle started.", time: "Today", tone: "neutral" }, { title: "Compliance checks complete", description: "Ten doctors cleared for transfer.", time: "2h", tone: "success" }, { title: "Hold created", description: "Two payout requests need finance review.", time: "Now", tone: "warning" }]} />;
 }

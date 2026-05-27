@@ -1,9 +1,12 @@
+"use client";
+
 import { Banknote, CheckCircle2, DollarSign, ShieldCheck, WalletCards } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MetricCard } from "@/components/metrics/metric-card";
 import { ModulePage } from "@/components/shared/module-page";
 import { StatusPill } from "@/components/shared/status-pill";
+import { useUIStore } from "@/store/ui-store";
 
 const requests = [
   ["WR-9012", "Dr. Sarah Jenkins", "$4,820", "Ready"],
@@ -13,6 +16,8 @@ const requests = [
 ];
 
 export function PayoutsWorkspace() {
+  const openModal = useUIStore((state) => state.openModal);
+
   return (
     <ModulePage
       title="Doctor Payouts"
@@ -43,7 +48,19 @@ export function PayoutsWorkspace() {
                 <div className="flex items-center gap-3">
                   <div className="font-semibold text-slate-900">{amount}</div>
                   <StatusPill tone={status === "Ready" ? "success" : status === "Compliance Hold" ? "danger" : "warning"}>{status}</StatusPill>
-                  <Button size="sm" variant={status === "Ready" ? "default" : "outline"}>{status === "Ready" ? "Approve" : "Review"}</Button>
+                  <Button
+                    size="sm"
+                    variant={status === "Ready" ? "default" : "outline"}
+                    onClick={() => openModal({
+                      type: "approve-payout",
+                      title: status === "Ready" ? "Approve payout request" : "Review payout request",
+                      description: "This action records a finance review and updates the payout workflow.",
+                      entityId: id,
+                      entityName: `${doctor} / ${amount}`,
+                    })}
+                  >
+                    {status === "Ready" ? "Approve" : "Review"}
+                  </Button>
                 </div>
               </div>
             ))}

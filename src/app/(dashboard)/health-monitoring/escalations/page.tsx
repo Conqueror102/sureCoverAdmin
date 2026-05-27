@@ -1,6 +1,6 @@
 import { AlertTriangle } from "lucide-react";
-import { SectionPage } from "@/features/shared/section-page";
+import { WorkflowPage } from "@/features/shared/workflow-page";
 
 export default function RiskEscalationsPage() {
-  return <SectionPage title="Risk Escalations" description="AI-triggered health risks, clinician handoff, and escalation timelines." icon={AlertTriangle} items={["AI risk flags", "Clinician handoff", "Escalation history"]} />;
+  return <WorkflowPage title="Risk Escalations" description="AI-triggered health risks, clinician handoff, and escalation timelines." icon={AlertTriangle} metrics={[{ label: "Open Escalations", value: "19", change: "Across care teams", tone: "amber" }, { label: "Critical", value: "3", change: "Emergency response", tone: "red" }, { label: "Resolved Today", value: "41", change: "Clinical closeout" }, { label: "Avg Handoff", value: "4.1m", change: "Within SLA" }]} queueTitle="Escalation Queue" queue={[{ title: "Chest pain protocol", subtitle: "Marcus Johnson / cardiology handoff", status: "Critical", tone: "danger" }, { title: "CHF oxygen drop", subtitle: "Noah Kim / respiratory escalation", status: "High", tone: "warning" }, { title: "Medication adherence", subtitle: "Eleanor Richards / diabetes care", status: "Review", tone: "warning" }]} timeline={[{ title: "AI flag created", description: "Risk model opened escalation case.", time: "8m", tone: "danger" }, { title: "Clinician accepted", description: "Assigned doctor accepted handoff.", time: "5m", tone: "success" }, { title: "Follow-up scheduled", description: "Patient added to care team queue.", time: "Now", tone: "neutral" }]} />;
 }

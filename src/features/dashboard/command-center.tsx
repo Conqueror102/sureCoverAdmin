@@ -53,7 +53,7 @@ export function CommandCenter() {
             <Button variant="outline" size="sm">Export</Button>
           </CardHeader>
           <CardContent className="h-80">
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="100%" height="100%" minWidth={1} minHeight={320}>
               <AreaChart data={data.revenue} margin={{ left: -16, right: 12, top: 10 }}>
                 <defs>
                   <linearGradient id="tealRevenue" x1="0" y1="0" x2="0" y2="1">

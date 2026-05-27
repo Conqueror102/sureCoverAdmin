@@ -1,6 +1,6 @@
 import { BellRing } from "lucide-react";
-import { SectionPage } from "@/features/shared/section-page";
+import { WorkflowPage } from "@/features/shared/workflow-page";
 
 export default function NotificationSettingsPage() {
-  return <SectionPage title="Notification Settings" description="Routing rules, alert thresholds, SMS providers, and emergency notification policies." icon={BellRing} items={["Routing rules", "Alert thresholds", "SMS provider"]} />;
+  return <WorkflowPage title="Notification Settings" description="Routing rules, alert thresholds, SMS providers, and emergency notification policies." icon={BellRing} metrics={[{ label: "Rules", value: "38", change: "Routing policies" }, { label: "Emergency SMS", value: "Active", change: "Critical alerts" }, { label: "Templates", value: "64", change: "Email, SMS, push" }, { label: "Failures", value: "2", change: "Retrying", tone: "amber" }]} queueTitle="Notification Rule Queue" queue={[{ title: "Emergency escalation", subtitle: "SMS + push + in-app to medical operations", status: "Live", tone: "success" }, { title: "Monthly check-in reminder", subtitle: "Patient email and push", status: "Live", tone: "success" }, { title: "Pharmacy payout notice", subtitle: "Finance and partner notification", status: "Draft", tone: "warning" }]} timeline={[{ title: "Rule published", description: "Emergency alerts routed to doctors and support.", time: "Today", tone: "success" }, { title: "Template reviewed", description: "Prescription-ready SMS approved.", time: "1d", tone: "neutral" }, { title: "Retry started", description: "Two SMS notifications queued for retry.", time: "Now", tone: "warning" }]} />;
 }

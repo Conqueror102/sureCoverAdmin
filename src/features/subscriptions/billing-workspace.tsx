@@ -46,7 +46,7 @@ export function BillingWorkspace() {
             <Button variant="outline" size="sm"><Download className="mr-2 h-4 w-4" /> Export</Button>
           </CardHeader>
           <CardContent className="h-72">
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="100%" height="100%" minWidth={1} minHeight={280}>
               <BarChart data={mrr}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
                 <XAxis dataKey="month" axisLine={false} tickLine={false} />

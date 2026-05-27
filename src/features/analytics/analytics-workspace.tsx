@@ -51,7 +51,7 @@ export function AnalyticsWorkspace() {
             <CardTitle>User Growth</CardTitle>
           </CardHeader>
           <CardContent className="h-80">
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="100%" height="100%" minWidth={1} minHeight={280}>
               <AreaChart data={growth}>
                 <defs>
                   <linearGradient id="patientsGradient" x1="0" y1="0" x2="0" y2="1">
@@ -75,7 +75,7 @@ export function AnalyticsWorkspace() {
             <CardTitle>Chronic Illness Distribution</CardTitle>
           </CardHeader>
           <CardContent className="h-80">
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="100%" height="100%" minWidth={1} minHeight={280}>
               <BarChart data={health} layout="vertical" margin={{ left: 28 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
                 <XAxis type="number" axisLine={false} tickLine={false} />

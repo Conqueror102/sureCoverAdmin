@@ -1,6 +1,6 @@
 import { MessagesSquare } from "lucide-react";
-import { SectionPage } from "@/features/shared/section-page";
+import { WorkflowPage } from "@/features/shared/workflow-page";
 
 export default function LiveSupportPage() {
-  return <SectionPage title="Live Support" description="Realtime support queue, active conversations, and response metrics." icon={MessagesSquare} items={["Live queue", "Active chats", "Response metrics"]} />;
+  return <WorkflowPage title="Live Support" description="Realtime support queue, active conversations, and response metrics." icon={MessagesSquare} metrics={[{ label: "Live Chats", value: "11", change: "Currently active" }, { label: "Avg Reply", value: "2.4m", change: "Within SLA" }, { label: "Escalations", value: "5", change: "Needs specialist", tone: "amber" }, { label: "Agents", value: "4", change: "2 available" }]} queueTitle="Live Support Queue" queue={[{ title: "Payment failed", subtitle: "Marcus Johnson / emergency access concern", status: "High", tone: "danger" }, { title: "Prescription delivery", subtitle: "Eleanor Richards / pharmacy routing", status: "Review", tone: "warning" }, { title: "Doctor onboarding", subtitle: "Dr. William Smith / credential docs", status: "Open", tone: "neutral" }]} timeline={[{ title: "Chat accepted", description: "Support agent accepted live queue item.", time: "4m", tone: "success" }, { title: "Billing escalated", description: "Finance admin tagged for failed payment.", time: "2m", tone: "warning" }, { title: "Patient updated", description: "Temporary access message sent.", time: "Now", tone: "success" }]} />;
 }

@@ -1,4 +1,5 @@
 import { DashboardShell } from "@/components/layout/dashboard-shell";
+import { AccessGuard } from "@/components/layout/access-guard";
 
 export default function DashboardLayout({
   children,
@@ -6,6 +7,8 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <DashboardShell>{children}</DashboardShell>
+    <DashboardShell>
+      <AccessGuard>{children}</AccessGuard>
+    </DashboardShell>
   );
 }

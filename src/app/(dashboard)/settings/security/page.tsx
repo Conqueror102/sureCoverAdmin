@@ -1,6 +1,6 @@
 import { LockKeyhole } from "lucide-react";
-import { SectionPage } from "@/features/shared/section-page";
+import { WorkflowPage } from "@/features/shared/workflow-page";
 
 export default function SecuritySettingsPage() {
-  return <SectionPage title="Security Settings" description="MFA policy, session controls, device history, IP allowlists, and audit posture." icon={LockKeyhole} items={["MFA policy", "Session controls", "Device history"]} />;
+  return <WorkflowPage title="Security Settings" description="MFA policy, session controls, device history, IP allowlists, and audit posture." icon={LockKeyhole} metrics={[{ label: "MFA Coverage", value: "100%", change: "All admins enrolled" }, { label: "Active Sessions", value: "18", change: "Across roles" }, { label: "Blocked IPs", value: "12", change: "Deny list active" }, { label: "Session TTL", value: "30m", change: "For privileged roles" }]} queueTitle="Security Policy Queue" queue={[{ title: "MFA enforcement", subtitle: "Authenticator app required for all admins", status: "Enabled", tone: "success" }, { title: "Device approval", subtitle: "New devices require email verification", status: "Enabled", tone: "success" }, { title: "IP allowlist", subtitle: "Finance and audit roles scoped", status: "Review", tone: "warning" }]} timeline={[{ title: "Policy saved", description: "Session timeout updated for privileged roles.", time: "Today", tone: "success" }, { title: "Device revoked", description: "Unknown workstation session revoked.", time: "1d", tone: "warning" }, { title: "MFA reset", description: "Support admin recovery codes rotated.", time: "2d", tone: "neutral" }]} />;
 }

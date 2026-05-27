@@ -1,6 +1,6 @@
 import { History } from "lucide-react";
-import { SectionPage } from "@/features/shared/section-page";
+import { WorkflowPage } from "@/features/shared/workflow-page";
 
 export default function PayoutHistoryPage() {
-  return <SectionPage title="Payout History" description="Completed payouts, provider reconciliation, failed transfers, and exports." icon={History} items={["Completed payouts", "Failed transfers", "Exports"]} />;
+  return <WorkflowPage title="Payout History" description="Completed payouts, provider reconciliation, failed transfers, and exports." icon={History} metrics={[{ label: "Completed", value: "$412k", change: "This month" }, { label: "Transfers", value: "184", change: "Doctor and pharmacy payouts" }, { label: "Failed", value: "3", change: "Provider rejected", tone: "red" }, { label: "Reconciled", value: "98.4%", change: "Ledger match" }]} queueTitle="Payout Ledger" queue={[{ title: "PO-8812", subtitle: "Dr. Sarah Jenkins / $4,820", status: "Complete", tone: "success" }, { title: "PO-8813", subtitle: "CarePlus Rx Network / $5,120", status: "Complete", tone: "success" }, { title: "PO-8814", subtitle: "Dr. Lucas Garcia / bank rejected", status: "Failed", tone: "danger" }]} timeline={[{ title: "Payout file generated", description: "Finance generated provider payout file.", time: "3d", tone: "neutral" }, { title: "Provider accepted", description: "181 transfers accepted.", time: "2d", tone: "success" }, { title: "Failed transfer review", description: "Three failed transfers moved to exception queue.", time: "Now", tone: "warning" }]} />;
 }

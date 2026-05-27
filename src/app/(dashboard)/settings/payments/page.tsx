@@ -1,6 +1,6 @@
 import { Landmark } from "lucide-react";
-import { SectionPage } from "@/features/shared/section-page";
+import { WorkflowPage } from "@/features/shared/workflow-page";
 
 export default function PaymentSettingsPage() {
-  return <SectionPage title="Payment Integrations" description="Payment processors, payout providers, webhooks, currencies, and tax settings." icon={Landmark} items={["Processors", "Webhooks", "Currencies"]} />;
+  return <WorkflowPage title="Payment Integrations" description="Payment processors, payout providers, webhooks, currencies, and tax settings." icon={Landmark} metrics={[{ label: "Processors", value: "2", change: "Card and local rails" }, { label: "Webhook Health", value: "99.9%", change: "Last 24 hours" }, { label: "Currencies", value: "12", change: "Configured markets" }, { label: "Failed Hooks", value: "1", change: "Needs retry", tone: "amber" }]} queueTitle="Integration Queue" queue={[{ title: "Stripe card billing", subtitle: "Subscriptions and invoices", status: "Connected", tone: "success" }, { title: "Doctor payout provider", subtitle: "ACH and local transfer rails", status: "Connected", tone: "success" }, { title: "Pharmacy bonus payout", subtitle: "Referral ledger transfer setup", status: "Review", tone: "warning" }]} timeline={[{ title: "Webhook rotated", description: "Signing secret rotated for billing events.", time: "Today", tone: "success" }, { title: "Payout provider tested", description: "Sandbox transfer succeeded.", time: "2d", tone: "success" }, { title: "Currency added", description: "NGN enabled for pharmacy payouts.", time: "4d", tone: "neutral" }]} />;
 }

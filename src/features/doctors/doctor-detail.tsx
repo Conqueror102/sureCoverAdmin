@@ -1,3 +1,5 @@
+"use client";
+
 import { Award, CalendarClock, DollarSign, FileCheck2, Star, Stethoscope, Users } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -6,8 +8,11 @@ import { MetricCard } from "@/components/metrics/metric-card";
 import { ModulePage } from "@/components/shared/module-page";
 import { StatusPill } from "@/components/shared/status-pill";
 import { ActivityTimeline } from "@/components/timelines/activity-timeline";
+import { useUIStore } from "@/store/ui-store";
 
 export function DoctorDetail() {
+  const openModal = useUIStore((state) => state.openModal);
+
   return (
     <ModulePage
       title="Dr. Sarah Jenkins"
@@ -62,6 +67,20 @@ export function DoctorDetail() {
             />
           </CardContent>
         </Card>
+      </div>
+
+      <div className="flex justify-end">
+        <Button
+          onClick={() => openModal({
+            type: "assign-doctor",
+            title: "Assign patients to doctor",
+            description: "Assign matching patients by condition, risk level, hospital, and continuity requirements.",
+            entityId: "D-801",
+            entityName: "Dr. Sarah Jenkins",
+          })}
+        >
+          Assign matching patients
+        </Button>
       </div>
 
       <Card className="rounded-lg">

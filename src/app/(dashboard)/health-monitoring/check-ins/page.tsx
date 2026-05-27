@@ -1,6 +1,6 @@
 import { ClipboardCheck } from "lucide-react";
-import { SectionPage } from "@/features/shared/section-page";
+import { WorkflowPage } from "@/features/shared/workflow-page";
 
 export default function CheckInsPage() {
-  return <SectionPage title="Monthly Check-ins" description="Chronic care check-ins, symptom responses, adherence, and follow-up workflows." icon={ClipboardCheck} items={["Due check-ins", "Symptom responses", "Follow-up tasks"]} />;
+  return <WorkflowPage title="Monthly Check-ins" description="Chronic care check-ins, symptom responses, adherence, and follow-up workflows." icon={ClipboardCheck} metrics={[{ label: "Due Today", value: "84", change: "18 high priority" }, { label: "Completed", value: "312", change: "Last 7 days" }, { label: "Missed", value: "11", change: "Needs outreach", tone: "amber" }, { label: "Escalated", value: "4", change: "Clinical review", tone: "red" }]} queueTitle="Check-in Queue" queue={[{ title: "Marcus Johnson", subtitle: "Chest tightness reported in monthly form", status: "Escalate", tone: "danger" }, { title: "Eleanor Richards", subtitle: "Glucose trend uploaded", status: "Review", tone: "warning" }, { title: "Sophia Martinez", subtitle: "Asthma symptoms stable", status: "Complete", tone: "success" }]} timeline={[{ title: "Check-ins generated", description: "Monthly chronic care forms created for active patients.", time: "Today", tone: "success" }, { title: "Risk response flagged", description: "One response crossed clinical escalation threshold.", time: "1h", tone: "danger" }, { title: "Care team notified", description: "Assigned doctors received follow-up tasks.", time: "Now", tone: "warning" }]} />;
 }

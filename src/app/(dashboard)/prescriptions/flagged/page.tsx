@@ -1,6 +1,6 @@
 import { Flag } from "lucide-react";
-import { SectionPage } from "@/features/shared/section-page";
+import { WorkflowPage } from "@/features/shared/workflow-page";
 
 export default function FlaggedPrescriptionsPage() {
-  return <SectionPage title="Flagged Prescriptions" description="High-risk prescription review queue with interaction and dosage warnings." icon={Flag} items={["Interaction warnings", "Dosage exceptions", "Reviewer decisions"]} />;
+  return <WorkflowPage title="Flagged Prescriptions" description="High-risk prescription review queue with interaction and dosage warnings." icon={Flag} metrics={[{ label: "Flagged Orders", value: "7", change: "Needs review", tone: "red" }, { label: "Interactions", value: "4", change: "Medication conflicts", tone: "amber" }, { label: "Dosage Exceptions", value: "3", change: "Outside normal range", tone: "amber" }, { label: "Approved Today", value: "22", change: "Reviewer decisions" }]} queueTitle="Flagged Prescription Queue" queue={[{ title: "Lisinopril + potassium", subtitle: "Marcus Johnson / interaction warning", status: "Critical", tone: "danger" }, { title: "Metformin dosage", subtitle: "Eleanor Richards / renal function check", status: "Review", tone: "warning" }, { title: "Albuterol refill", subtitle: "Sophia Martinez / refill threshold exceeded", status: "Review", tone: "warning" }]} timeline={[{ title: "Flag created", description: "Interaction engine detected a medication conflict.", time: "12m", tone: "danger" }, { title: "Reviewer assigned", description: "Medical reviewer opened the prescription order.", time: "8m", tone: "warning" }, { title: "Decision pending", description: "Doctor signature held until review closes.", time: "Now", tone: "neutral" }]} />;
 }

@@ -1,6 +1,6 @@
 import { Database } from "lucide-react";
-import { SectionPage } from "@/features/shared/section-page";
+import { WorkflowPage } from "@/features/shared/workflow-page";
 
 export default function MedicationDatabasePage() {
-  return <SectionPage title="Medication Database" description="Approved medications, dosage rules, contraindications, and prescribing controls." icon={Database} items={["Medication catalog", "Contraindications", "Approval rules"]} />;
+  return <WorkflowPage title="Medication Database" description="Approved medications, dosage rules, contraindications, and prescribing controls." icon={Database} metrics={[{ label: "Medications", value: "1,284", change: "Active catalog" }, { label: "Rules", value: "426", change: "Dosage and interactions" }, { label: "Under Review", value: "18", change: "Medical reviewer queue", tone: "amber" }, { label: "Blocked", value: "7", change: "Safety hold", tone: "red" }]} queueTitle="Medication Rule Queue" queue={[{ title: "Lisinopril 10mg", subtitle: "BP medication interaction review", status: "Active", tone: "success" }, { title: "Metformin 500mg", subtitle: "Renal function rule update", status: "Review", tone: "warning" }, { title: "Warfarin", subtitle: "High-risk contraindication policy", status: "Safety hold", tone: "danger" }]} timeline={[{ title: "Rule updated", description: "Contraindication logic updated for high-risk patients.", time: "Today", tone: "warning" }, { title: "Reviewer approved", description: "Medical reviewer approved dosage range.", time: "2d", tone: "success" }, { title: "Catalog synced", description: "Medication database published to prescribing UI.", time: "Now", tone: "neutral" }]} />;
 }

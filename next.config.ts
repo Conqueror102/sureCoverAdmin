@@ -24,7 +24,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  output: "standalone",
   transpilePackages: ["framer-motion"],
   webpack: (config, { dev }) => {
     if (dev && process.env.DISABLE_HMR === "true") {
@@ -34,9 +33,6 @@ const nextConfig: NextConfig = {
     }
 
     return config;
-  },
-  experimental: {
-    turbo: {},
   },
 };
 

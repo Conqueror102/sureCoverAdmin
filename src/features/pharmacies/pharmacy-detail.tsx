@@ -1,3 +1,5 @@
+"use client";
+
 import { BadgeDollarSign, ClipboardCheck, Pill, ReceiptText, Store } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -5,8 +7,10 @@ import { MetricCard } from "@/components/metrics/metric-card";
 import { ModulePage } from "@/components/shared/module-page";
 import { StatusPill } from "@/components/shared/status-pill";
 import { ActivityTimeline } from "@/components/timelines/activity-timeline";
+import { useUIStore } from "@/store/ui-store";
 
 export function PharmacyDetail() {
+  const openModal = useUIStore((state) => state.openModal);
   const referrals = [
     ["RX-12091", "Marcus Johnson", "Lisinopril 10mg", "$14.20"],
     ["RX-12092", "Eleanor Richards", "Metformin 500mg", "$8.40"],
@@ -21,6 +25,20 @@ export function PharmacyDetail() {
       primaryAction="Approve bonus payout"
       secondaryAction="Adjust bonus rate"
     >
+      <div className="flex justify-end">
+        <Button
+          onClick={() => openModal({
+            type: "approve-payout",
+            title: "Approve pharmacy referral payout",
+            description: "This approves the pharmacy referral bonus payout for finance release.",
+            entityId: "PH-2402",
+            entityName: "CarePlus Rx Network / $5,120",
+          })}
+        >
+          Approve referral payout
+        </Button>
+      </div>
+
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         <MetricCard label="Partner Tier" value="Enterprise" change="Highest fulfillment SLA" icon={Store} />
         <MetricCard label="Filled Prescriptions" value="2,310" change="Current cycle" icon={Pill} />

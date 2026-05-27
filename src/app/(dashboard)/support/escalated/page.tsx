@@ -1,6 +1,6 @@
 import { AlertCircle } from "lucide-react";
-import { SectionPage } from "@/features/shared/section-page";
+import { WorkflowPage } from "@/features/shared/workflow-page";
 
 export default function EscalatedSupportPage() {
-  return <SectionPage title="Escalated Cases" description="Support issues requiring medical, billing, or operations intervention." icon={AlertCircle} items={["Medical escalations", "Billing escalations", "Operations tasks"]} />;
+  return <WorkflowPage title="Escalated Cases" description="Support issues requiring medical, billing, or operations intervention." icon={AlertCircle} metrics={[{ label: "Escalated", value: "5", change: "Open cases", tone: "amber" }, { label: "Medical", value: "2", change: "Clinical handoff" }, { label: "Billing", value: "2", change: "Finance required" }, { label: "Operations", value: "1", change: "Platform review" }]} queueTitle="Escalation Queue" queue={[{ title: "Emergency access payment failure", subtitle: "Marcus Johnson / billing and clinical risk", status: "Critical", tone: "danger" }, { title: "Prescription pharmacy mismatch", subtitle: "Eleanor Richards / pharmacy partner", status: "High", tone: "warning" }, { title: "Doctor verification dispute", subtitle: "Dr. William Smith / credential review", status: "Review", tone: "warning" }]} timeline={[{ title: "Escalation created", description: "Support escalated case to operations.", time: "18m", tone: "warning" }, { title: "Owner assigned", description: "Support Tier 2 took ownership.", time: "12m", tone: "success" }, { title: "Resolution pending", description: "Finance and clinical teams need approval.", time: "Now", tone: "danger" }]} />;
 }

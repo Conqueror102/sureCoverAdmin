@@ -2,6 +2,7 @@
 
 import { CommandPalette } from "@/components/navigation/command-palette";
 import { NotificationCenter } from "@/components/notifications/notification-center";
+import { ModalManager } from "@/components/dialogs/modal-manager";
 import { EmergencySimulator } from "@/components/emergency/simulator";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { Topbar } from "@/components/layout/Topbar";
@@ -16,6 +17,7 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
       <EmergencySimulator />
       <CommandPalette />
       <NotificationCenter />
+      <ModalManager />
 
       {mobileNavOpen ? (
         <div className="fixed inset-0 z-[90] bg-slate-950/30 md:hidden" onClick={() => setMobileNavOpen(false)}>

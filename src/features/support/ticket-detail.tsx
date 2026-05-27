@@ -1,9 +1,12 @@
+"use client";
+
 import { AlertCircle, Clock, LifeBuoy, MessageSquare, Send, UserRound, type LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ModulePage } from "@/components/shared/module-page";
 import { StatusPill } from "@/components/shared/status-pill";
 import { ActivityTimeline } from "@/components/timelines/activity-timeline";
+import { useUIStore } from "@/store/ui-store";
 
 const caseContext = [
   [UserRound, "Patient", "Marcus Johnson"],
@@ -13,6 +16,8 @@ const caseContext = [
 ] satisfies Array<[LucideIcon, string, string]>;
 
 export function TicketDetail() {
+  const openModal = useUIStore((state) => state.openModal);
+
   return (
     <ModulePage
       title="Ticket T-4092"
@@ -21,6 +26,20 @@ export function TicketDetail() {
       primaryAction="Resolve ticket"
       secondaryAction="Escalate"
     >
+      <div className="flex justify-end">
+        <Button
+          onClick={() => openModal({
+            type: "resolve-ticket",
+            title: "Resolve support ticket",
+            description: "This closes the ticket, records an audit note, and updates support metrics.",
+            entityId: "T-4092",
+            entityName: "Ticket T-4092",
+          })}
+        >
+          Resolve ticket
+        </Button>
+      </div>
+
       <div className="grid gap-4 xl:grid-cols-[1.2fr_0.8fr]">
         <Card className="rounded-lg">
           <CardHeader className="flex flex-row items-center justify-between">

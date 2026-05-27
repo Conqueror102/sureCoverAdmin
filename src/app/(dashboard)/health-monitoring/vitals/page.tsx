@@ -1,6 +1,6 @@
 import { HeartPulse } from "lucide-react";
-import { SectionPage } from "@/features/shared/section-page";
+import { WorkflowPage } from "@/features/shared/workflow-page";
 
 export default function VitalsMonitoringPage() {
-  return <SectionPage title="Vitals Monitoring" description="Remote patient vitals, wearable telemetry, thresholds, and clinical alerts." icon={HeartPulse} items={["Blood pressure", "Heart rate", "Glucose trends"]} />;
+  return <WorkflowPage title="Vitals Monitoring" description="Remote patient vitals, wearable telemetry, thresholds, and clinical alerts." icon={HeartPulse} metrics={[{ label: "Live Streams", value: "1,284", change: "Wearables connected" }, { label: "BP Alerts", value: "14", change: "Above threshold", tone: "amber" }, { label: "Critical Vitals", value: "3", change: "Emergency queue", tone: "red" }, { label: "Normal Range", value: "92%", change: "Current patients" }]} queueTitle="Vitals Alert Queue" queue={[{ title: "Marcus Johnson", subtitle: "HR 42 bpm / BP 90-60", status: "Critical", tone: "danger" }, { title: "Noah Kim", subtitle: "SpO2 88% / HR 110", status: "High", tone: "warning" }, { title: "Eleanor Richards", subtitle: "Glucose 184 mg/dL", status: "Review", tone: "warning" }]} timeline={[{ title: "Telemetry received", description: "Wearable stream entered monitoring pipeline.", time: "2m", tone: "neutral" }, { title: "Threshold crossed", description: "AI risk model elevated patient status.", time: "1m", tone: "danger" }, { title: "Doctor notified", description: "Care team received high-risk alert.", time: "Now", tone: "success" }]} />;
 }

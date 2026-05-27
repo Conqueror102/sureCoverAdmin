@@ -1,6 +1,6 @@
 import { ShieldAlert } from "lucide-react";
-import { SectionPage } from "@/features/shared/section-page";
+import { WorkflowPage } from "@/features/shared/workflow-page";
 
 export default function SecurityEventsPage() {
-  return <SectionPage title="Security Events" description="Login events, MFA failures, permission changes, and suspicious access tracking." icon={ShieldAlert} items={["MFA failures", "Permission changes", "Suspicious access"]} />;
+  return <WorkflowPage title="Security Events" description="Login events, MFA failures, permission changes, and suspicious access tracking." icon={ShieldAlert} metrics={[{ label: "Security Events", value: "14", change: "Today", tone: "amber" }, { label: "MFA Failures", value: "3", change: "Investigating", tone: "red" }, { label: "Role Changes", value: "2", change: "Audit captured" }, { label: "Suspicious IPs", value: "1", change: "Blocked", tone: "red" }]} queueTitle="Security Event Queue" queue={[{ title: "MFA failure burst", subtitle: "finance-admin@surecova.com / 3 failed attempts", status: "Investigate", tone: "danger" }, { title: "Permission change", subtitle: "Medical Reviewer role updated", status: "Audit", tone: "warning" }, { title: "New device login", subtitle: "Admin Lead / Lagos", status: "Verified", tone: "success" }]} timeline={[{ title: "MFA challenge failed", description: "Repeated failed MFA attempts detected.", time: "25m", tone: "danger" }, { title: "IP blocked", description: "Suspicious address moved to deny list.", time: "20m", tone: "success" }, { title: "Security review opened", description: "Audit team assigned event review.", time: "Now", tone: "warning" }]} />;
 }

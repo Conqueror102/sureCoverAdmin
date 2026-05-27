@@ -1,6 +1,6 @@
 import { ScrollText } from "lucide-react";
-import { SectionPage } from "@/features/shared/section-page";
+import { WorkflowPage } from "@/features/shared/workflow-page";
 
 export default function AdminActivitiesPage() {
-  return <SectionPage title="Admin Activities" description="Admin action history, affected records, actor attribution, and review filters." icon={ScrollText} items={["Clinical actions", "Billing actions", "Settings changes"]} />;
+  return <WorkflowPage title="Admin Activities" description="Admin action history, affected records, actor attribution, and review filters." icon={ScrollText} metrics={[{ label: "Activities", value: "284", change: "Today" }, { label: "Clinical Actions", value: "92", change: "Patient and doctor workflows" }, { label: "Finance Actions", value: "41", change: "Billing and payouts" }, { label: "Settings Changes", value: "6", change: "Requires review", tone: "amber" }]} queueTitle="Admin Activity Review" queue={[{ title: "Doctor approved", subtitle: "Medical Reviewer / Dr. William Smith", status: "Audited", tone: "success" }, { title: "Payout approved", subtitle: "Finance Admin / PO-8812", status: "Audited", tone: "success" }, { title: "Role permission changed", subtitle: "Super Admin / Medical Reviewer", status: "Review", tone: "warning" }]} timeline={[{ title: "Action captured", description: "Admin activity logged with actor and target.", time: "10m", tone: "success" }, { title: "Review required", description: "Permission change routed to audit queue.", time: "3h", tone: "warning" }, { title: "Export generated", description: "Daily activity export created.", time: "Yesterday", tone: "neutral" }]} />;
 }

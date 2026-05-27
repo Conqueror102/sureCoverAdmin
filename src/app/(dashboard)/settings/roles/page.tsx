@@ -1,6 +1,6 @@
 import { Shield } from "lucide-react";
-import { SectionPage } from "@/features/shared/section-page";
+import { WorkflowPage } from "@/features/shared/workflow-page";
 
 export default function RolePermissionsPage() {
-  return <SectionPage title="Role Permissions" description="RBAC matrix for admin roles, route permissions, and protected operational actions." icon={Shield} items={["Super Admin", "Medical Reviewer", "Finance Admin"]} />;
+  return <WorkflowPage title="Role Permissions" description="RBAC matrix for admin roles, route permissions, and protected operational actions." icon={Shield} metrics={[{ label: "Admin Roles", value: "6", change: "Permission groups" }, { label: "Protected Modules", value: "17", change: "Route guarded" }, { label: "Sensitive Actions", value: "42", change: "Audit captured" }, { label: "Policy Drift", value: "0", change: "No mismatches" }]} queueTitle="Role Review Queue" queue={[{ title: "Medical Reviewer", subtitle: "Prescription and emergency access", status: "Active", tone: "success" }, { title: "Finance Admin", subtitle: "Billing, payout, pharmacy bonuses", status: "Active", tone: "success" }, { title: "Support Admin", subtitle: "Patients, hospitals, tickets", status: "Review", tone: "warning" }]} timeline={[{ title: "Route guard enabled", description: "Client guard now blocks modules by permission.", time: "Today", tone: "success" }, { title: "Hospital permissions added", description: "Operations and support roles can review hospital network.", time: "Today", tone: "neutral" }, { title: "Pharmacy permissions added", description: "Finance can manage pharmacy bonuses and payouts.", time: "Today", tone: "success" }]} />;
 }
