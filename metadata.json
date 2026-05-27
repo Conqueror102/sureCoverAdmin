@@ -1,0 +1,6 @@
+{
+  "name": "SureCova Command Center",
+  "description": "Healthcare operations platform and dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
